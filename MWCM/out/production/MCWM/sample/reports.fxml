@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1">
+    <bottom>
+        <HBox prefHeight="32.0" prefWidth="800.0" spacing="10.0" BorderPane.alignment="CENTER">
+            <padding>
+                <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+            </padding>
+            <children>
+                <TabPane prefHeight="28.0" prefWidth="816.0" tabClosingPolicy="UNAVAILABLE">
+                    <tabs>
+                        <Tab text="Customer Orders">
+                            <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                            </content>
+                        </Tab>
+                        <Tab text="Inventory">
+                            <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                            </content>
+                        </Tab>
+                        <Tab text="Car Service">
+                            <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                            </content>
+                        </Tab>
+                        <Tab text="Reports">
+                            <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                            </content>
+                        </Tab>
+                    </tabs>
+                    <opaqueInsets>
+                        <Insets />
+                    </opaqueInsets>
+                </TabPane>
+            </children></HBox>
+    </bottom>
+    <top>
+        <HBox prefHeight="37.0" prefWidth="800.0" BorderPane.alignment="CENTER">
+            <children>
+                <AnchorPane prefHeight="20.0" prefWidth="800.0">
+                    <children>
+                        <Separator layoutY="36.0" prefHeight="3.0" prefWidth="800.0" />
+                        <Label alignment="TOP_CENTER" layoutY="10.0" prefHeight="17.0" prefWidth="800.0" text="MCWM Reports Details">
+                            <font>
+                                <Font size="18.0" />
+                            </font></Label>
+                    </children>
+                </AnchorPane>
+            </children></HBox>
+    </top>
+    <center>
+        <BorderPane prefHeight="504.0" prefWidth="560.0" BorderPane.alignment="CENTER">
+            <left>
+                <Separator orientation="VERTICAL" prefHeight="529.0" prefWidth="0.0" BorderPane.alignment="CENTER" />
+            </left>
+            <center>
+                <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                    <bottom>
+                        <HBox prefHeight="0.0" prefWidth="680.0" BorderPane.alignment="CENTER">
+                            <children>
+                                <ButtonBar prefHeight="42.0" prefWidth="188.0">
+                                    <buttons>
+                                        <Button mnemonicParsing="false" text="Delete" />
+                                    </buttons>
+                                </ButtonBar>
+                                <TextField prefHeight="25.0" prefWidth="184.0" promptText="Search...">
+                                    <HBox.margin>
+                                        <Insets left="10.0" top="10.0" />
+                                    </HBox.margin>
+                                </TextField>
+                            </children>
+                        </HBox>
+                    </bottom>
+                    <BorderPane.margin>
+                        <Insets />
+                    </BorderPane.margin>
+               <center>
+                  <TableView prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                    <columns>
+                      <TableColumn prefWidth="75.0" text="Invoice #" />
+                      <TableColumn prefWidth="112.0" text="First Name" />
+                        <TableColumn text="Last Name" />
+                        <TableColumn prefWidth="68.0" text="Parts Cost" />
+                        <TableColumn text="Labor Cost" />
+                        <TableColumn prefWidth="113.0" text="Total" />
+                        <TableColumn prefWidth="92.0" text="Date" />
+                        <TableColumn prefWidth="173.0" text="Comments" />
+                    </columns>
+                  </TableView>
+               </center>
+                </BorderPane>
+            </center>
+        </BorderPane>
+    </center>
+</BorderPane>

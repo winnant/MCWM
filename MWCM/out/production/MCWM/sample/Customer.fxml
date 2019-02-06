@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="845.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.CustomerController">
+
+   <left>
+      <VBox prefHeight="529.0" prefWidth="162.0" BorderPane.alignment="CENTER">
+         <padding>
+            <Insets bottom="2.0" left="2.0" right="2.0" />
+         </padding>
+         <children>
+            <Label alignment="TOP_CENTER" prefHeight="17.0" prefWidth="246.0" text="Customer Information">
+               <padding>
+                  <Insets bottom="2.0" left="2.0" />
+               </padding>
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <GridPane prefHeight="337.0" prefWidth="166.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="127.0" minWidth="10.0" prefWidth="127.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <TextField fx:id="text_first" promptText="First Name">
+                     <GridPane.margin>
+                        <Insets bottom="1.0" top="1.0" />
+                     </GridPane.margin></TextField>
+                  <TextField fx:id="text_last" promptText="Last Name" GridPane.rowIndex="1">
+                     <GridPane.margin>
+                        <Insets bottom="1.0" top="1.0" />
+                     </GridPane.margin></TextField>
+                  <TextField fx:id="text_number" promptText="Mobile No." GridPane.rowIndex="2">
+                     <GridPane.margin>
+                        <Insets bottom="1.0" top="1.0" />
+                     </GridPane.margin></TextField>
+                  <TextField fx:id="text_email" promptText="Email Address" GridPane.rowIndex="3">
+                     <GridPane.margin>
+                        <Insets bottom="1.0" top="1.0" />
+                     </GridPane.margin></TextField>
+                  <TextField fx:id="text_address" prefHeight="25.0" prefWidth="0.0" promptText="Address" GridPane.rowIndex="4">
+                     <GridPane.margin>
+                        <Insets bottom="1.0" top="1.0" />
+                     </GridPane.margin></TextField>
+                  <TextField fx:id="text_city" prefHeight="25.0" prefWidth="0.0" promptText="City" GridPane.rowIndex="5" />
+                  <TextField fx:id="text_zipcode" prefHeight="25.0" prefWidth="0.0" promptText="ZIP Code" GridPane.rowIndex="6" />
+                  <ComboBox fx:id="states_cb" prefWidth="150.0" promptText="State" GridPane.rowIndex="7" />
+               </children>
+               <padding>
+                  <Insets left="10.0" right="2.0" />
+               </padding>
+            </GridPane>
+            <GridPane prefHeight="77.0" prefWidth="166.0">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <Button fx:id="addButton" mnemonicParsing="false" onAction="#addCustomer" prefHeight="25.0" prefWidth="62.0" text="Add">
+                     <GridPane.margin>
+                        <Insets left="10.0" />
+                     </GridPane.margin>
+                  </Button>
+                  <Button fx:id="updateButton" mnemonicParsing="false" onAction="#updateCustomer" prefHeight="25.0" prefWidth="62.0" text="Update" GridPane.columnIndex="1">
+                     <GridPane.margin>
+                        <Insets left="10.0" />
+                     </GridPane.margin>
+                  </Button>
+                  <Button fx:id="deleteButton" mnemonicParsing="false" onAction="#deleteCustomer" prefHeight="25.0" prefWidth="62.0" text="Delete" GridPane.rowIndex="1">
+                     <GridPane.margin>
+                        <Insets left="10.0" />
+                     </GridPane.margin>
+                  </Button>
+               </children>
+            </GridPane>
+            <GridPane>
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="166.0" minWidth="10.0" prefWidth="166.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="136.0" minWidth="0.0" prefWidth="0.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <TextField fx:id="text_search" onKeyTyped="#search" prefHeight="25.0" prefWidth="119.0" promptText="Search...">
+                     <opaqueInsets>
+                        <Insets left="10.0" />
+                     </opaqueInsets>
+                     <GridPane.margin>
+                        <Insets left="10.0" right="15.0" />
+                     </GridPane.margin>
+                  </TextField>
+               </children>
+               <opaqueInsets>
+                  <Insets right="20.0" />
+               </opaqueInsets>
+            </GridPane>
+         </children>
+      </VBox>
+   </left>
+   <top>
+      <HBox prefHeight="37.0" prefWidth="800.0" BorderPane.alignment="CENTER">
+         <children>
+            <AnchorPane prefHeight="20.0" prefWidth="800.0">
+               <children>
+                  <Separator layoutY="38.0" prefHeight="3.0" prefWidth="845.0" />
+                  <Label alignment="TOP_CENTER" layoutY="10.0" prefHeight="27.0" prefWidth="845.0" text="Mechanical Car Workshop Manager">
+                     <font>
+                        <Font size="18.0" />
+                     </font></Label>
+               </children>
+            </AnchorPane>
+         </children></HBox>
+   </top>
+   <center>
+      <BorderPane prefHeight="504.0" prefWidth="560.0" BorderPane.alignment="CENTER">
+         <left>
+            <Separator orientation="VERTICAL" prefHeight="529.0" prefWidth="0.0" BorderPane.alignment="CENTER" />
+         </left>
+         <center>
+            <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <bottom>
+                  <HBox prefHeight="182.0" prefWidth="624.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <HBox prefHeight="182.0" prefWidth="679.0">
+                           <children>
+                              <Button fx:id="cars_button" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#carWindow" prefHeight="128.0" prefWidth="135.0" text="Cars" />
+                              <Button fx:id="employee_button" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#employeeWindow" prefHeight="128.0" prefWidth="135.0" text="Employees" />
+                              <Button fx:id="inventory_button" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#inventoryWindow" prefHeight="128.0" prefWidth="135.0" text="Inventory" />
+                              <Button fx:id="CarServiceOrder_btn" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#carServiceOrderWindow" prefHeight="128.0" prefWidth="135.0" text="Car Service Order" />
+                              <Button fx:id="report_button" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#reportWindow" prefHeight="128.0" prefWidth="135.0" text="Reports" />
+                           </children>
+                           <padding>
+                              <Insets top="2.0" />
+                           </padding>
+                        </HBox>
+                     </children></HBox>
+               </bottom>
+               <BorderPane.margin>
+                  <Insets />
+               </BorderPane.margin>
+               <center>
+                  <TableView id="tableView" fx:id="tableView" onMouseClicked="#clickCustomer" prefHeight="347.0" prefWidth="664.0" BorderPane.alignment="CENTER">
+                    <columns>
+                        <TableColumn id="firstName" fx:id="col_first" prefWidth="90.0" text="First Name" />
+                        <TableColumn id="lastName" fx:id="col_last" prefWidth="90.0" text="Last Name" />
+                        <TableColumn id="number" fx:id="col_number" prefWidth="110.0" text="Mobile No." />
+                        <TableColumn id="email" fx:id="col_email" prefWidth="123.0" text="Email Address" />
+                        <TableColumn fx:id="col_city" prefWidth="92.0" text="City" />
+                        <TableColumn fx:id="col_zip" prefWidth="66.0" text="ZIP" />
+                        <TableColumn fx:id="col_state" prefWidth="52.0" text="State" />
+                    </columns>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </TableView>
+               </center>
+            </BorderPane>
+         </center>
+      </BorderPane>
+   </center>
+</BorderPane>

@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.ReportController">
+
+    <left>
+        <VBox prefHeight="426.0" prefWidth="170.0" BorderPane.alignment="CENTER">
+            <padding>
+                <Insets bottom="2.0" left="2.0" right="2.0" />
+            </padding>
+            <children>
+                <Label alignment="TOP_CENTER" prefHeight="17.0" prefWidth="246.0" text="Reports">
+                    <padding>
+                        <Insets bottom="2.0" left="2.0" />
+                    </padding>
+                    <font>
+                        <Font size="15.0" />
+                    </font>
+                </Label>
+                <GridPane prefHeight="70.0" prefWidth="166.0">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="127.0" minWidth="10.0" prefWidth="127.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                    <children>
+                        <DatePicker fx:id="start_date" promptText="Starting Day" />
+                        <DatePicker fx:id="end_date" promptText="Ending Day" GridPane.rowIndex="1" />
+                    </children>
+                    <padding>
+                        <Insets left="10.0" right="2.0" />
+                    </padding>
+                </GridPane>
+                <GridPane prefHeight="77.0" prefWidth="166.0">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+               <children>
+                  <Button fx:id="report_button" mnemonicParsing="false" onAction="#generateReport" prefHeight="36.0" prefWidth="166.0" text="Generate Report">
+                     <GridPane.margin>
+                        <Insets />
+                     </GridPane.margin>
+                  </Button>
+                  <Button fx:id="InventoryReport_Button" mnemonicParsing="false" onAction="#generateCurrentInventoryReport" prefHeight="36.0" prefWidth="166.0" text="Inventory Report" GridPane.rowIndex="1" />
+               </children>
+               <padding>
+                  <Insets left="10.0" right="20.0" />
+               </padding>
+                </GridPane>
+                <GridPane>
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="166.0" minWidth="10.0" prefWidth="166.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="136.0" minWidth="0.0" prefWidth="0.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                    <children>
+                        <TextField fx:id="text_search" onKeyPressed="#searchPart" prefHeight="25.0" prefWidth="119.0" promptText="Search...">
+                            <opaqueInsets>
+                                <Insets left="10.0" />
+                            </opaqueInsets>
+                            <GridPane.margin>
+                                <Insets left="10.0" right="15.0" />
+                            </GridPane.margin>
+                        </TextField>
+                    </children>
+                    <opaqueInsets>
+                        <Insets right="20.0" />
+                    </opaqueInsets>
+                </GridPane>
+            </children>
+        </VBox>
+    </left>
+    <bottom>
+        <HBox prefHeight="32.0" prefWidth="800.0" spacing="10.0" BorderPane.alignment="CENTER">
+            <padding>
+                <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+            </padding></HBox>
+    </bottom>
+    <top>
+        <HBox prefHeight="37.0" prefWidth="800.0" BorderPane.alignment="CENTER">
+            <children>
+                <AnchorPane prefHeight="20.0" prefWidth="800.0">
+                    <children>
+                        <Separator layoutY="36.0" prefHeight="3.0" prefWidth="800.0" />
+                        <Label alignment="TOP_CENTER" layoutY="10.0" prefHeight="17.0" prefWidth="800.0" text="Mechanical Car Workshop Manager">
+                            <font>
+                                <Font size="18.0" />
+                            </font></Label>
+                    </children>
+                </AnchorPane>
+            </children></HBox>
+    </top>
+    <center>
+        <BorderPane prefHeight="504.0" prefWidth="560.0" BorderPane.alignment="CENTER">
+            <left>
+                <Separator orientation="VERTICAL" prefHeight="529.0" prefWidth="0.0" BorderPane.alignment="CENTER" />
+            </left>
+            <center>
+                <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                    <BorderPane.margin>
+                        <Insets />
+                    </BorderPane.margin>
+               <center>
+                  <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <TableView id="tableView" fx:id="tableView" onMouseClicked="#clickedReport" prefHeight="389.0" prefWidth="624.0">
+                           <columns>
+                              <TableColumn id="number" fx:id="col_start" prefWidth="71.0" text="Start Date" />
+                              <TableColumn id="email" fx:id="col_end" prefWidth="68.0" text="End Date" />
+                              <TableColumn fx:id="col_costs" prefWidth="93.0" text="Sales Profit" />
+                              <TableColumn fx:id="col_service_profit" prefWidth="94.0" text="Service Profit" />
+                              <TableColumn fx:id="col_taxes" prefWidth="54.0" text="Taxes" />
+                              <TableColumn fx:id="col_profit" prefWidth="112.0" text="Before Tax Profit" />
+                              <TableColumn fx:id="col_net_profit" prefWidth="130.0" text="After Tax Profit" />
+                           </columns>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                        </TableView>
+                        <TextArea fx:id="text_inventory_report" prefHeight="200.0" prefWidth="200.0" promptText="Inventory Usage">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </TextArea>
+                     </children>
+                  </VBox>
+               </center>
+                </BorderPane>
+            </center>
+        </BorderPane>
+    </center>
+</BorderPane>
